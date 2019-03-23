@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import CommentIcon from '@material-ui/icons/Comment';
 
 const styles = theme => ({
     root: {
@@ -27,8 +24,8 @@ class CheckboxList extends React.Component {
 
         return (
             <List className={classes.root}>
-                {tags.map(tag => (
-                    <ListItem key={tag.value} role={undefined} dense button onClick={this.handleToggle(tag.value)}>
+                {tags.map((tag, i) => (
+                    <ListItem key={i} role={undefined} dense button onClick={this.handleToggle(tag.value)}>
                         <Checkbox
                             checked={tag.isChecked}
                             tabIndex={-1}
